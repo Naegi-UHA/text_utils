@@ -1,9 +1,16 @@
 def capitalize_words(text):
-    """
-    Returns the given text with each word capitalized.
-    Args:
-        text (str): The input text to be transformed.
-    Returns:
-        str: The transformed text with each word capitalized.
+    """Capitalize each word in a string.
+
+    Uses :meth:`str.title` to capitalize the text.
+
+    Parameters
+    ----------
+    text : str
+        The text to transform.
+
+    Returns
+    -------
+    str
+        The transformed text.
     """
     return text.title()

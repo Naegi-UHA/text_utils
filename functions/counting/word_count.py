@@ -1,7 +1,14 @@
 def word_count(text):
-    """Returns the number of words in the given text.
-    Args:
-        text (str): The input text to be analyzed.
-    Returns:
-        int: The number of words in the text."""
+    """Count the whitespace-separated words in a string.
+
+    Parameters
+    ----------
+    text : str
+        The text to analyze.
+
+    Returns
+    -------
+    int
+        The number of words in ``text``.
+    """
     return len(text.split())

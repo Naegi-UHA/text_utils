@@ -1,8 +1,14 @@
 def reverse(text):
-    """Returns the given text in reverse.
-    Args:
-        text (str): The input text to be transformed.
-    Returns:
-        str: The transformed text in reverse.
+    """Return a string with its characters in reverse order.
+
+    Parameters
+    ----------
+    text : str
+        The text to transform.
+
+    Returns
+    -------
+    str
+        The text in reverse order.
     """
     return text[::-1]
