@@ -1,27 +1,27 @@
-import unittest
-from unittest.mock import patch
-
 from functions.transformations.shuffle_words import shuffle_words
 
 
-class ShuffleWordsTests(unittest.TestCase):
-    @patch("functions.transformations.shuffle_words.random.shuffle")
-    def test_shuffles_words_and_preserves_attached_punctuation(self, shuffle):
-        shuffle.side_effect = lambda words: words.reverse()
+def test_shuffle_words_reorders_words_and_keeps_punctuation(monkeypatch):
+    monkeypatch.setattr(
+        "functions.transformations.shuffle_words.random.shuffle",
+        lambda words: words.reverse(),
+    )
 
-        result = shuffle_words("Hello, world! This is text.")
-
-        self.assertEqual(result, "text. is This world! Hello,")
-
-    @patch("functions.transformations.shuffle_words.random.shuffle")
-    def test_normalizes_whitespace(self, shuffle):
-        shuffle.side_effect = lambda words: None
-
-        self.assertEqual(shuffle_words("  one\t two\nthree  "), "one two three")
-
-    def test_empty_text_returns_empty_text(self):
-        self.assertEqual(shuffle_words(""), "")
+    assert shuffle_words("Hello, world! This is text.") == "text. is This world! Hello,"
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_shuffle_words_normalizes_whitespace(monkeypatch):
+    monkeypatch.setattr(
+        "functions.transformations.shuffle_words.random.shuffle",
+        lambda words: None,
+    )
+
+    assert shuffle_words("  one\t two\nthree  ") == "one two three"
+
+
+def test_shuffle_words_empty_text():
+    assert shuffle_words("") == ""
+
+
+def test_shuffle_words_whitespace_only_text():
+    assert shuffle_words(" \t\n ") == ""
