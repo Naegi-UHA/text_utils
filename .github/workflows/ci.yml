@@ -27,3 +27,7 @@ jobs:
 
       - name: Run tests
         run: python -m pytest
+
+      - name: Simulate a temporary CI failure
+        if: matrix.os == 'ubuntu-22.04' && matrix.python-version == '3.11'
+        run: python -c "raise SystemExit('CI failure')"
