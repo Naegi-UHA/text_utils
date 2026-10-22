@@ -1,4 +1,4 @@
-from functions import character_count
+from text_utils.functions import character_count
 
 
 def test_character_count_normal_text():

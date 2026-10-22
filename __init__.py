@@ -1,4 +1,4 @@
-from .functions import (
+from .text_utils.functions import (
     capitalize_words,
     character_count,
     reverse,

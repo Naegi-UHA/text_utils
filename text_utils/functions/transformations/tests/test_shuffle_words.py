@@ -1,9 +1,9 @@
-from functions.transformations.shuffle_words import shuffle_words
+from text_utils.functions.transformations.shuffle_words import shuffle_words
 
 
 def test_shuffle_words_reorders_words_and_keeps_punctuation(monkeypatch):
     monkeypatch.setattr(
-        "functions.transformations.shuffle_words.random.shuffle",
+        "text_utils.functions.transformations.shuffle_words.random.shuffle",
         lambda words: words.reverse(),
     )
 
@@ -12,7 +12,7 @@ def test_shuffle_words_reorders_words_and_keeps_punctuation(monkeypatch):
 
 def test_shuffle_words_normalizes_whitespace(monkeypatch):
     monkeypatch.setattr(
-        "functions.transformations.shuffle_words.random.shuffle",
+        "text_utils.functions.transformations.shuffle_words.random.shuffle",
         lambda words: None,
     )
 
