@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "text-utils-lucas-runser"
+name = "text-utils-lucasr"
 version = "1.0.0"
 description = "Basic functions for manipulating strings and text."
 readme = "README.md"
